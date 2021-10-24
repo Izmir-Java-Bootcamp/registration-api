@@ -30,8 +30,8 @@ public class RegistrationService {
         Registration registration = REGISTRATION_MAPPER.toRegistration(request);
         Registration savedRegistration = repository.save(registration);
 
-//        bookService.updateAvailability(request.getBookId(), false);
-//        userService.incrementRegistrationsCount(request.getUserId());
+        libraryApiService.updateAvailability(request.getBookId(), false);
+        userApiService.incrementCount(request.getUserId());
 
         return REGISTRATION_MAPPER.toRegistrationDto(savedRegistration);
     }

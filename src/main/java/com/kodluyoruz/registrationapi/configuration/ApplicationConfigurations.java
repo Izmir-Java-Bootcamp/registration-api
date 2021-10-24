@@ -12,7 +12,7 @@ import java.time.Duration;
 @Configuration
 public class ApplicationConfigurations {
     @Bean
-    public RestTemplate userApiTemplate(RestTemplateBuilder builder, @Value("client.user.url") String url) {
+    public RestTemplate userApiTemplate(RestTemplateBuilder builder, @Value("${client.user.url}") String url) {
         return builder
                 .setConnectTimeout(Duration.ofSeconds(1))
                 .setReadTimeout(Duration.ofSeconds(1))
@@ -22,7 +22,7 @@ public class ApplicationConfigurations {
 
 
     @Bean
-    public RestTemplate libraryApiTemplate(RestTemplateBuilder builder, @Value("client.library.url") String url) {
+    public RestTemplate libraryApiTemplate(RestTemplateBuilder builder, @Value("${client.library.url}") String url) {
         return builder
                 .setConnectTimeout(Duration.ofSeconds(1))
                 .setReadTimeout(Duration.ofSeconds(2))
